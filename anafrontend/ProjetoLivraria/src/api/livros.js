@@ -10,8 +10,8 @@ export default class LivrosApi {
     return response.data;
   }
 
-  async adicionarlivro(books) {
-    const response = await axios.post('https://livraria-a.herokuapp.com/books');
+  async adicionarlivro(book) {
+    const response = await axios.post('https://livraria-a.herokuapp.com/books', book);
     return response.data;
   }
 
@@ -22,8 +22,7 @@ export default class LivrosApi {
 
   async atualizarlivro(books) {
     const response = await axios.put(
-        'https://livraria-a.herokuapp.com/books`/${publishers.id}`,
-      ,books
+        `https://livraria-a.herokuapp.com/books/${books.id}`, books
     );
     return response.data;
   }

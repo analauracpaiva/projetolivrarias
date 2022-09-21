@@ -1,6 +1,6 @@
 <script>
-  import livrosApi from "@/api/livros.js";
-  const livrosApi = new livrosApi();
+  import LivrosApi from "@/api/livros.js";
+  const livrosApi = new LivrosApi();
   export default {
     data() {
       return {
@@ -9,7 +9,7 @@
       };
     },
     async created() {
-      this.livros = await timesApi.buscarTodosOslivros();
+      this.livros = await livrosApi.buscarTodosOsLivros();
     },
     methods: {
       async salvar() {
@@ -18,12 +18,12 @@
         } else {
           await livrosApi.adicionarlivro(this.livro);
         }
-        this.livros = await livrosApi.buscarTodosOslivros();
+        this.livros = await livrosApi.buscarTodosOsLivros();
         this.livro = {};
       },
       async excluir(livro) {
         await livrosApi.excluirlivro(livro.id);
-        this.livros = await livrosApi.buscarTodosOslivros();
+        this.livros = await livrosApi.buscarTodosOsLivros();
       },
       editar(livro) {
         Object.assign(this.livro, livro);

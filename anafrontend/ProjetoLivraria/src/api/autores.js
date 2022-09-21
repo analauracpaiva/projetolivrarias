@@ -10,8 +10,8 @@ export default class AutoresApi {
     return response.data;
   }
 
-  async adicionarAutor(publishers) {
-    const response = await axios.post('https://livraria-a.herokuapp.com/publishers');
+  async adicionarAutor(publisher) {
+    const response = await axios.post('https://livraria-a.herokuapp.com/publishers', publisher);
     return response.data;
   }
 
@@ -22,8 +22,7 @@ export default class AutoresApi {
 
   async atualizarAutor(publishers) {
     const response = await axios.put(
-        'https://livraria-a.herokuapp.com/publishers`/${publishers.id}`,
-      ,publishers
+        `https://livraria-a.herokuapp.com/publishers/${publishers.id}` ,publishers
     );
     return response.data;
   }
